@@ -17,4 +17,3 @@
 # Задание 3
 ### 1. Функция test_product_creation - тесты для класса Product
 ### 2. Функция test_category_creation - тесты для класса Category
-### 3. 
