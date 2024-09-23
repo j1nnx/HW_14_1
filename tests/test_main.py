@@ -33,3 +33,19 @@ def test_category_init(test_category: Any) -> Any:
         test_category.description
         == "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником"
     )
+
+
+@pytest.fixture()
+def test_new_product():
+    new_product = Product.new_product(
+        {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
+         "quantity": 5})
+    return new_product
+
+
+def test_new_product_init(test_new_product):
+    assert test_new_product.name == "Samsung Galaxy S23 Ultra"
+    assert test_new_product.description == "256GB, Серый цвет, 200MP камера"
+    assert test_new_product.price == 180000.0
+    assert test_new_product.quantity == 5
+

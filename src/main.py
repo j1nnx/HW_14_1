@@ -2,8 +2,18 @@ class Product:
     def __init__(self, name: str, description: str, price: float, quantity: int):
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
+
+    @property
+    def price(self):
+        return self.__price
+
+    def price_(self, value: float):
+        if value <= 0:
+            return 'Цена не должна быть нулевая или отрицательная'
+        else:
+            self.__price = value
 
     @classmethod
     def new_product(cls, product_info: dict):
@@ -60,9 +70,9 @@ class Category:
 #     print(new_product.price)
 #     print(new_product.quantity)
 #
-#     new_product.price = 800
+#     new_product.__price = 800
 #     print(new_product.price)
-#     new_product.price = -100
+#     new_product.__price = -100
 #     print(new_product.price)
-#     new_product.price = 0
+#     new_product.__price = 0
 #     print(new_product.price)
