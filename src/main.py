@@ -24,10 +24,10 @@ class Category:
     category_count = 0
     product_count = 0
 
-    def __init__(self, name: str, description: str):
+    def __init__(self, name: str, description: str, products=None):
         self.name = name
         self.description = description
-        self.__products = []
+        self.__products = products if products else []
         self.product_count = len(self.__products)
 
         Category.category_count += 1
