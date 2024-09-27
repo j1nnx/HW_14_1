@@ -49,6 +49,7 @@ class Category:
         else:
             raise ValueError("Что-то не работает")
 
+
     @property
     def products(self) -> Any:
         return [f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products]
