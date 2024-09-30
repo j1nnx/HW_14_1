@@ -1,6 +1,6 @@
 from typing import Any
 
-from src.main import Category, Product
+from src.main import Category, Product, Smartphone, LawnGrass
 
 product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
 product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
@@ -39,3 +39,28 @@ def test_add_init() -> Any:
     assert (product1 + product2) == (180000.0 * 5 + 210000.0 * 8)
     assert (product1 + product3) == (180000.0 * 5 + 31000.0 * 14)
     assert (product2 + product3) == (210000.0 * 8 + 31000.0 * 14)
+
+
+smartphone = Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5,
+                        "S23 Ultra", 256, "Серый")
+
+
+def test_smarthone_init() -> Any:
+    assert smartphone.name == "Samsung Galaxy S23 Ultra"
+    assert smartphone.description == "256GB, Серый цвет, 200MP камера"
+    assert smartphone.efficiency == 95.5
+    assert smartphone.model == "S23 Ultra"
+
+
+lawn_grass = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия",
+                       "7 дней", "Зеленый")
+
+
+def test_lawngrass_init() -> Any:
+    assert lawn_grass.name == "Газонная трава"
+    assert lawn_grass.description == "Элитная трава для газона"
+    assert lawn_grass.price == 500.0
+    assert lawn_grass.quantity == 20
+    assert lawn_grass.country == "Россия"
+    assert lawn_grass.germination_period == "7 дней"
+    assert lawn_grass.color == "Зеленый"
