@@ -64,3 +64,18 @@ def test_lawngrass_init() -> Any:
     assert lawn_grass.country == "Россия"
     assert lawn_grass.germination_period == "7 дней"
     assert lawn_grass.color == "Зеленый"
+
+
+def test_product_creation_with_zero_quantity():
+    try:
+        product = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 0)
+        print("Тест не пройден: исключение не выброшено")
+    except ValueError as e:
+        assert str(e) == "Товар с нулевым количеством не может быть добавлен", "Неверное сообщение об ошибке"
+        print("Тест пройден: выброшено исключение ValueError")
+
+
+def test_category_average_price_no_products():
+    category_empty = Category("Пустая категория", "Категория без продуктов", [])
+    assert category_empty.middle_price() == 0, "Средний ценник для пустой категории должен быть 0"
+    print("Тест пройден: средний ценник для пустой категории равен 0")
